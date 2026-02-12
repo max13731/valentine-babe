@@ -1,0 +1,87 @@
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f8c8dc; /* Pink background color */
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+    overflow: hidden; /* Prevents scrolling if button moves too far */
+}
+
+.container {
+    position: relative; 
+    width: 100%;
+    max-width: 600px; /* Keeps things centered nicely */
+}
+
+.photo {
+    width: 250px; /* Size of your photo */
+    height: auto;
+    border-radius: 15px; /* Rounded corners */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2); /* Soft shadow */
+    margin-bottom: 20px;
+    object-fit: cover;
+}
+
+h1 {
+    color: #d63384; /* Dark pink text */
+    font-size: 2em;
+    margin-bottom: 30px;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* Space between buttons */
+}
+
+button {
+    padding: 15px 30px;
+    font-size: 1.2em;
+    border: none;
+    border-radius: 50px; /* Makes buttons oval */
+    cursor: pointer;
+    font-weight: bold;
+    transition: transform 0.2s;
+}
+
+#yesBtn {
+    background-color: #28a745; /* Green color */
+    color: white;
+}
+
+#noBtn {
+    background-color: #dc3545; /* Red color */
+    color: white;
+    position: absolute; /* Allows it to move freely */
+}
+
+/* This hides the success message until we need it */
+.hidden {
+    display: none;
+}
+
+/* Success State Styles */
+.container.success .buttons,
+.container.success h1 {
+    display: none; /* Hides buttons and title when 'Yes' is clicked */
+}
+
+.container.success #successMessage {
+    display: block; /* Shows the love message */
+    animation: popIn 0.5s ease;
+}
+
+.container.success h2 {
+    color: #d63384;
+    font-size: 2.5em;
+}
+
+@keyframes popIn {
+    0% { transform: scale(0); }
+    80% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
